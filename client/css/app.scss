@@ -1,0 +1,78 @@
+$blue: #5f99cf;
+$lightBlue: rgb(207, 227, 247);
+$darkBlue: #369;
+$whiteBlue: #eff7ff;
+
+body{
+  margin: 0;
+}
+
+.outerNav {
+
+  background: $lightBlue; 
+  color: $blue;
+  height: 10vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  border-bottom: 1px solid $darkBlue;
+  nav{
+
+    display: flex;
+    width: 30vw;
+    justify-content: space-around;
+    align-items: flex-end;
+
+    .links a{
+      margin-right: 8%;
+      color: $darkBlue;
+      font-size: 1.25rem;
+      font-weight: bold;
+      padding: 5px 5px 0 5px;
+      background: $whiteBlue;
+      text-decoration: none;
+      list-style: none;
+    }
+
+    a.activeLink {
+      background-color: white;
+    }
+
+    a.homeLink {
+      font-size: 2.5rem;
+      color: black;
+      font-weight: bold;
+      text-decoration: none;
+      list-style: none;
+    }
+
+    a::active{
+      text-decoration: none;
+      list-style: none;
+      color: orange;
+    }
+  }
+}
+
+.home{
+  margin-left: 10vw;
+  border-left: 1px solid $darkBlue;
+}
+
+
+.postCard {
+  display: flex;
+
+  .icons {
+    display: flex;
+    flex-direction: column;
+    margin:0 5%;
+
+    span {
+      font-size: 1.5rem;
+    }
+    span:hover {
+      color: orange;
+    }
+  }
+}
