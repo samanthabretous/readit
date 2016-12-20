@@ -1,16 +1,17 @@
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import * as actions from './postsActions'
-import Posts from './Posts'
+import * as actions from './postActions'
+import Post from './Post'
 
 const mapDispatchToProps = (dispatch) => (
   bindActionCreators(actions, dispatch)
 )
 
 const mapStateToProps = state => {
+  console.log(state.home)
 return {
-  posts: state.home.posts
+  post: state.home.post
 }}
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Posts)
+export default connect(mapStateToProps, mapDispatchToProps)(Post)

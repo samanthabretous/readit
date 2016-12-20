@@ -1,16 +1,20 @@
 import React from 'react'
 import PostCard from './PostCard'
+import Ad from './Ad'
 
 
 const Home = (props) =>{
   return (
     <div className="home">
+    <section>
     {props.posts ?
       props.posts.map((post, index) =>(
-        <PostCard key={index} upCount={post.upCount} downCount={post.downCount} index={index} PostId={post.id}title={post.title} body={post.body}/>
+        <PostCard key={index} index={index} post={post}/>
       ))
       : null
     }
+    </section>
+    <Ad/>
     </div>
   )
 }

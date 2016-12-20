@@ -14,17 +14,17 @@ export const sortPost = (posts) => {
     post.Votes.map(vote => {
       vote.vote ? upCount++ : downCount++
     })
-    console.log([upCount, post])
     post.upCount = upCount
     post.downCount = downCount
 
-    mostVotes.push([upCount, post])
+    mostVotes.push({count: upCount, post: post})
   })
-
-  let sortVotes = mostVotes.sort((a,b)=> a[0] < b[0])
+  let sortVotes = _.sortBy(mostVotes, (o)=>{
+    return o.count
+  }).reverse()
 
   let sortedPost = sortVotes.map(element =>{
-    return element[1]
+    return element.post
   })
   return sortedPost
 }

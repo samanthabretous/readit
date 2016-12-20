@@ -3,9 +3,10 @@ const router = require('express').Router()
 const Post = require('../models').Post;
 const Comment = require('../models').Comment;
 const Vote = require('../models').Vote;
+const Category = require('../models').Category;
 
 const getPosts = (req, res) =>{
-  Post.findAll({include: [Comment, Vote]})
+  Post.findAll({include: [Comment, Vote, Category]})
   .then(posts =>{res.send(posts)})
   .catch(err => {res.sendStatus(500)})
 }
@@ -13,7 +14,12 @@ const createPost = (req, res) => {
   console.log(req.body)
   Post.create({
     title: req.body.title, 
-    body: req.body.body
+    body: req.body.body, 
+    image: req.body.image
+  })
+  .then(newPost => {
+    console.log(req.body.category)
+    newPost.addCategories(req.body.category)
   })
   .then( newPost => res.send(newPost))
   .catch(err => {res.sendStatus(500)})

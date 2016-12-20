@@ -5,6 +5,7 @@ $whiteBlue: #eff7ff;
 
 body{
   margin: 0;
+  box-sizing: border-box;
 }
 
 .outerNav {
@@ -12,19 +13,39 @@ body{
   background: $lightBlue; 
   color: $blue;
   height: 10vh;
+  padding-top: 20px;
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
   border-bottom: 1px solid $darkBlue;
+  padding: 0 3%;
+  
   nav{
 
     display: flex;
-    width: 30vw;
-    justify-content: space-around;
+    width: 45%;
     align-items: flex-end;
+    padding-top: 5px;
+
+    a.homeLink {
+      text-decoration: none;
+      list-style: none;
+      height: 7vh;
+      padding-right: 5%;
+
+      img {
+        height: 100%;
+      }
+    }
+
+    .links{
+      display: flex;
+      justify-content: flex-start;
+      width: 67%;
+    }
 
     .links a{
-      margin-right: 8%;
+      margin-right: 5px;
       color: $darkBlue;
       font-size: 1.25rem;
       font-weight: bold;
@@ -38,14 +59,6 @@ body{
       background-color: white;
     }
 
-    a.homeLink {
-      font-size: 2.5rem;
-      color: black;
-      font-weight: bold;
-      text-decoration: none;
-      list-style: none;
-    }
-
     a::active{
       text-decoration: none;
       list-style: none;
@@ -54,25 +67,95 @@ body{
   }
 }
 
-.home{
+.home, 
+.postPage{
   margin-left: 10vw;
   border-left: 1px solid $darkBlue;
+  display: flex;
 }
 
 
 .postCard {
   display: flex;
+  border-bottom: 1px solid #888;
+  color: #888;
+  width: 65vw;
 
   .icons {
     display: flex;
     flex-direction: column;
-    margin:0 5%;
+    margin:0 1%;
 
     span {
-      font-size: 1.5rem;
+      font-size: 1rem;
     }
-    span:hover {
+    .vote:hover {
       color: orange;
     }
+    .count {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+  .postCardImage{
+    width: 12vw;
+    height: 10vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    img{
+      width: 100%;
+    }
+  }
+  .circle {
+    width: 8vh;
+    height: 8vh;
+    background: #888;
+    border-radius: 4vh;
+    opacity: 0.3;
+  }
+
+  .postInfo {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+   
+    h2 {
+      margin: 0;
+      color: #369;
+      font-weight: normal; 
+    }
+    p {
+      color: #888;
+      margin: 0;
+    }
+    .fakeLinks {
+      display: flex;
+      color: #888;
+      font-weight: bold;
+      p{
+        padding: 0 1px;
+        margin-right: 5px; 
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.ad {
+  width: 25vw;
+  background: #aaa;
+  height: 100%;
+
+  input{
+    width: 98%;
+    font-size: 1.5rem;
+    padding: 2.5px;
+  }
+  img{
+    width: 100%;
+    height: auto;
   }
 }
