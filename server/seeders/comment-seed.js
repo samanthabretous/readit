@@ -1,7 +1,7 @@
 const db = require('../models');
 const Comment = require('../models').Comment;
 
-Comment.sync()
+Comment.sync({force: true})
 .then(() => db.sequelize.sync())
 //add the following post to the database:
 .then(() => Comment.bulkCreate([

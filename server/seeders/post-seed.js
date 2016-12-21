@@ -89,6 +89,12 @@ Post.sync({force: true})
 .then((post) => {
   post.addCategories([2,4])
 })
+.then(() => Post.create(
+  {title: 'I just find it funny that...', body: "I just find it funny that Samantha has gotten this far in the her project. What a freaking over-achiever!!!! She's such a fugly slut and I'm jealous and mad. I hope she gets a big fat A!!! Betch.", image: ""}
+))
+.then((post) => {
+  post.addCategories([2,4])
+})
 
 // if everything is correct, you should only have THREE artists in your database
 .catch((err) => console.log(err));

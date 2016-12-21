@@ -1,9 +1,11 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import $ from 'jquery'
+import {Link}  from 'react-router'
 
 const SimpleForm = (props) => {
   const { handleSubmit, pristine, reset, submitting, categories } = props
+  let goToHome = () =>{this.props.router("/")}
   let submitForm = (e) => {
     e.preventDefault();
     let formValues = props.formInfo.values
@@ -14,7 +16,6 @@ const SimpleForm = (props) => {
         else return element;
     }).filter(element => element)
     .map(element=> parseInt(element))
-    console.log(categories)
     $.ajax({
       url: '/api/post',
       dataType: 'json',
@@ -60,7 +61,7 @@ const SimpleForm = (props) => {
       })
     }
       <div>
-        <button type="submit" disabled={pristine || submitting}>Submit</button>
+        <Link><button type="submit" disabled={pristine || submitting}>Submit</button></Link>
         <button type="button" disabled={pristine || submitting} onClick={reset}>Clear Values</button>
       </div>
     </form>

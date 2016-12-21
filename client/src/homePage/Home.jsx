@@ -1,9 +1,10 @@
 import React from 'react'
 import PostCard from './PostCard'
 import Ad from './Ad'
+import {withRouter} from 'react-router'
 
 
-const Home = (props) =>{
+const Home = withRouter((props) =>{
   return (
     <div className="home">
     <section>
@@ -17,6 +18,6 @@ const Home = (props) =>{
     <Ad/>
     </div>
   )
-}
+})
 
 export default Home

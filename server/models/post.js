@@ -1,7 +1,12 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var Post = sequelize.define('Post', {
-    title: DataTypes.STRING,
+    title: {
+      type: DataTypes.STRING,
+      validate : {
+        len : [1,200]
+      }
+    },
     body: {
       type :DataTypes.STRING(2000),
     },
@@ -12,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
         // associations can be defined here
         Post.hasMany(models.Vote),
         Post.hasMany(models.Comment)
-        Post.belongsToMany(models.Category, {through: 'post_category'})
+        Post.belongsToMany(models.Category, {onDelete: 'CASCADE', through: 'post_category'})
       }
     }
   });

@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        Category.belongsToMany(models.Post, {through: 'post_category'})
+        Category.belongsToMany(models.Post, {onDelete: 'CASCADE',through: 'post_category'})
       }
     }
   });
